@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Planner</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/dist/ionic/ionic.js"></script>
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/css/ionic.bundle.css"/>
+  <style>
+    :root {
+      --ion-safe-area-top: 20px;
+      --ion-safe-area-bottom: 22px;
+    }
+    ion-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  </style>
+</head>
+
+<body onload="init()">
+  <ion-app>
+    <ion-header>
+      <ion-toolbar style="background-color: blue">
+        <ion-title>Budget Planner</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-grid fixed>
+      <ion-row justify-content-center>
+
+          <!-- CARD -->
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Leon Christopher</ion-card-subtitle>
+              <ion-card-title><b>Input pengeluaran</b></ion-card-title>
+            </ion-card-header>
+
+            <!-- FORM -->
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="stacked">Pengeluaran<ion-text color="danger">*</ion-text></ion-label>
+                <ion-input required id="name" type="text" placeholder="Pengeluaran"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="stacked">Jumlah Pengeluaran<ion-text color="danger">*</ion-text></ion-label>
+                <ion-input required id="spend" type="number" placeholder="Jumlah Pengeluaran"></ion-input>
+              </ion-item>
+            </ion-card-content>
+            <!-- END OF FORM -->
+
+            <!-- BUTTON -->
+            <ion-card_content class="ion-float-right">
+              <ion-button color="danger" fill="outline" onclick="destroy()">
+                <ion-icon name="close" slot="start"></ion-icon> Hapus
+              </ion-button>
+
+              <ion-button color="primary" onclick="add()">
+                <ion-icon name="add" slot="start"></ion-icon> Tambah
+              </ion-button>
+            </ion-card-content>
+            <!-- END OF BUTTON -->
+          </ion-card>
+          <!-- END OF CARD -->
+      </ion-row>
+
+      <!-- AUTOMATED BY JAVASCRIPT -->
+      <ion-row>
+        <ion-col>
+          <ion-list id='list'></ion-list>
+          <br><br>
+            <ion-card-title>
+              Total of the spending <span id="price">0</span>
+            </ion-card-title>
+        </ion-col>
+    </ion-row>
+    </ion-grid>
+    <ion-alert-controller></ion-alert-controller>
+  </ion-app>
+</body>
+</html>
